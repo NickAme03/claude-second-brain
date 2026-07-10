@@ -63,7 +63,7 @@ Even if you never run these skills, four patterns transfer to any Claude Code se
 Copy any skill folder into your Claude Code skills directory:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/claude-second-brain
+git clone https://github.com/NickAme03/claude-second-brain
 cp -r claude-second-brain/skills/* ~/.claude/skills/
 ```
 
