@@ -71,6 +71,16 @@ Each skill is a standard `SKILL.md` (+ optional `references/`). They work indepe
 
 Skills reference a `<vault>` placeholder where they touch an Obsidian vault — replace with your own paths, or delete those lines if you don't use Obsidian.
 
+### First run
+
+Open any Claude Code session and type an ambiguous request — something like:
+
+> *"sistemami il progetto"* ("fix up my project")
+
+`decodifica-intento` fires **before anything is touched**: it classifies your intent (action? judgment? thinking aloud?), declares the reading it has chosen, and only then acts. If it guessed wrong, you correct one sentence instead of undoing an hour of misdirected work.
+
+That's the whole system in one interaction: decode first, act second, and end with choosable next steps instead of a dead end.
+
 ## Nota per chi legge in italiano
 
 Le skill sono nate in italiano e in italiano restano: sono il sistema operativo reale di un vault Obsidian ("Secondo Cervello") in uso quotidiano, non un esercizio. Se lavori in italiano con Claude Code, funzionano così come sono: copiale in `~/.claude/skills/` e parti da `decodifica-intento`.
