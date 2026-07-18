@@ -48,7 +48,7 @@ Una skill orienta il comportamento quando è attiva: non può impedirlo meccanic
 Al termine del processo, proponi all'utente le conseguenze sceglibili pertinenti
 tra queste — solo quelle che gli output di questa sessione rendono sensate:
 
-- se il giudizio riguarda un documento, un report o claim con fonti da verificare → **verifica-rigore** (revisione avversariale completa con registro delle evidenze)
-- se dal "cosa non funziona" emergono correzioni da pianificare → **gestione-progetti** (scomposizione in prossime azioni)
-- se il dissenso nasce da un concetto non capito → **apprendimento-adattivo** (rispiegazione calibrata)
+- se il giudizio riguarda un documento, un report o claim con fonti da verificare → **verifica-rigore** (revisione avversariale completa con registro delle evidenze) *(link grigio: non inclusa in questo repo)*
+- se dal "cosa non funziona" emergono correzioni da pianificare → **gestione-progetti** (scomposizione in prossime azioni) *(link grigio: non inclusa in questo repo)*
+- se il dissenso nasce da un concetto non capito → **apprendimento-adattivo** (rispiegazione calibrata) *(link grigio: non inclusa in questo repo)*
 - oppure: fermati qui — il giudizio onesto era il deliverable.

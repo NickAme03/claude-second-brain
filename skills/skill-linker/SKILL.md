@@ -74,6 +74,6 @@ Il registro vive in un file separato accanto a questa skill: [registro-grafo.md]
 ## Prossime skill
 
 - se hai appena aggiornato una skill e il registro mostra altri ☐ → **skill-linker** di nuovo, sulla prossima candidata (una per volta)
-- se durante la mappatura è emerso che serve una skill nuova, non un collegamento → **skill-creator** (crearla, poi collegarla)
+- se durante la mappatura è emerso che serve una skill nuova, non un collegamento → **skill-creator** (crearla, poi collegarla) *(link grigio: non inclusa in questo repo)*
 - se vuoi verificare che i collegamenti scelti reggano all'uso reale → esegui la skill appena aggiornata su un caso vero e osserva se la proposta finale è quella giusta
 - oppure: fermati qui — il grafo cresce un nodo alla volta.

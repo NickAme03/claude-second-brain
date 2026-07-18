@@ -86,5 +86,5 @@ tra queste — solo quelle che gli output di questa sessione rendono sensate:
 
 - se il verdetto elenca problemi da risolvere e l'utente vuole passare all'azione → **orchestratore-pianifica** (trasforma i fix in un `PIANO.md` eseguibile)
 - se la lettura di rete apre più direzioni possibili e va scelta una rotta → **percorsi-di-sviluppo** (2-4 percorsi comparabili sul profilo reale)
-- se l'analisi contiene numeri o claim su cui si prenderanno decisioni reali → **verifica-rigore** (revisione avversariale prima di fidarsi)
+- se l'analisi contiene numeri o claim su cui si prenderanno decisioni reali → **verifica-rigore** (revisione avversariale prima di fidarsi) *(link grigio: non inclusa in questo repo)*
 - oppure: fermati qui — il verdetto è chiaro e la prossima mossa è nelle mani dell'utente.

@@ -62,8 +62,8 @@ Chiudi con: una tabella comparativa sintetica (percorso, esigenza coperta, costo
 Al termine del processo, proponi all'utente le conseguenze sceglibili pertinenti
 tra queste — solo quelle che gli output di questa sessione rendono sensate:
 
-- se un percorso è stato scelto → **gestione-progetti** (inquadramento e scomposizione in prossime azioni)
-- se il percorso ha una dimensione economica da validare (prezzi, sostenibilità, break-even) → **modellazione-finanziaria**
-- se la raccomandazione poggia su ipotesi non verificate sul mercato → **deep-research** o ricerca mirata con Claude in Chrome
-- se il percorso richiede di imparare qualcosa di nuovo → **apprendimento-adattivo** (piano di studio calibrato)
+- se un percorso è stato scelto → **gestione-progetti** (inquadramento e scomposizione in prossime azioni) *(link grigio: non inclusa in questo repo)*
+- se il percorso ha una dimensione economica da validare (prezzi, sostenibilità, break-even) → **modellazione-finanziaria** *(link grigio: non inclusa in questo repo)*
+- se la raccomandazione poggia su ipotesi non verificate sul mercato → **deep-research** o ricerca mirata con Claude in Chrome *(strumenti d'ambiente, se disponibili)*
+- se il percorso richiede di imparare qualcosa di nuovo → **apprendimento-adattivo** (piano di studio calibrato) *(link grigio: non inclusa in questo repo)*
 - oppure: fermati qui — la scelta di direzione era il deliverable.

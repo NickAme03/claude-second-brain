@@ -69,3 +69,13 @@ Dopo la tabella, chiudi con due righe: la candidata più promettente e l'organo 
 - **Mai installare**: niente download, niente copia di skill nel setup, niente modifiche a settings o plugin. Solo ricerca e report.
 - **Mai modificare** le skill esistenti: il censimento è in sola lettura.
 - **Mai fabbricare**: vale la regola del passo 2 per tutto il report, incluse le skill locali (se non riesci a leggere un SKILL.md, dillo).
+
+## Prossime skill
+
+Al termine del processo, proponi all'utente le conseguenze sceglibili pertinenti
+tra queste — solo quelle che gli output di questa sessione rendono sensate:
+
+- se il report raccomanda una skill e l'utente decide di adottarla → dopo l'installazione (che fa lui), **skill-linker** (la nuova skill entra nel grafo, o resta tessuto morto)
+- se la caccia rivela un bisogno che nessuna skill esistente copre → **skill-creator** (crearla, poi collegarla) *(link grigio: non inclusa in questo repo)*
+- se il censimento mostra organi isolati già installati → **skill-linker** (collegarli, uno per volta)
+- oppure: fermati qui — il report era il deliverable: nessuna adozione senza decisione dell'utente.

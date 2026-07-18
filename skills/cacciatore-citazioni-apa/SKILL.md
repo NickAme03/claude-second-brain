@@ -58,3 +58,12 @@ Sotto la tabella, elenca separatamente:
 
 - Prima consegna la **tabella delle citazioni verificate per approvazione**; non redigere prosa del testo né modificare file `.docx` prima dell'ok dell'utente.
 - Non riscrivere le parti esistenti del testo: la skill lavora sull'apparato citazionale, non sul contenuto altrui.
+
+## Prossime skill
+
+Al termine del processo, proponi all'utente le conseguenze sceglibili pertinenti
+tra queste — solo quelle che gli output di questa sessione rendono sensate:
+
+- se la tabella contiene voci `[DA VERIFICARE]` o `[RITRATTATA]` → nuovo giro di caccia mirato solo su quei claim, prima della consegna
+- se l'apparato citazionale entra in un testo che verrà valutato (tesi, paper) → **verifica-rigore** (revisione avversariale di claim e fonti) *(link grigio: non inclusa in questo repo)*
+- oppure: fermati qui — la bibliografia approvata è il deliverable.
