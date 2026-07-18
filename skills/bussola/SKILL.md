@@ -77,7 +77,7 @@ Chiudi indirizzando alla skill che porta avanti la direzione scelta, invece di f
 Al termine, proponi la conseguenza sceglibile pertinente — solo quelle rese sensate dalla direzione emersa:
 
 - direzione = capire dove serve la tua attenzione tra i progetti → **orchestratore-cruscotto**
-- direzione = sbloccare un progetto specifico → **gestione-progetti** *(link grigio: non inclusa in questo repo)*
+- direzione = sbloccare un progetto specifico → **gestione-progetti** *(link grigio, se assente nel sistema)*
 - direzione = trasformare l'obiettivo in un piano eseguibile → **orchestratore-pianifica**
-- direzione = studiare / colmare un gap → **academy** *(link grigio: non inclusa in questo repo)*
+- direzione = studiare / colmare un gap → **academy** *(link grigio, se assente nel sistema)*
 - oppure: la direzione è chiara e la prima mossa è in mano all'utente → fermati qui.

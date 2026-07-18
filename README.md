@@ -36,7 +36,7 @@ graph LR
     BU --> OC
 ```
 
-The graph is not documentation: it is **maintained by one of its own nodes** (`skill-linker`) — a skill the human runs, not a daemon. It adds a standard handoff section to every skill, one at a time, keeps a registry of edges in a separate state file (`registro-grafo.md`), and reconciles that registry against the skills folder at every run, so skills born outside `skill-linker` still enter the graph. Missing links are tracked as "gray links": the system's natural to-do list. Handoff options pointing to skills outside this repo are marked *(link grigio)* in the skills themselves — you are never offered an option without being told it isn't installed.
+The graph is not documentation: it is **maintained by one of its own nodes** (`skill-linker`), a skill the human runs, not a daemon. It adds a standard handoff section to every skill, one at a time, and keeps the live edge registry outside the installed skill at `~/.claude/skill-state/skill-linker/registro-grafo.md`. The repository ships only a template; first run initializes missing state, while later installs never overwrite it. Every run reconciles the live registry against the skills folder, so skills born outside `skill-linker` still enter the graph. Missing links are tracked as "gray links": the system's natural to-do list. Portable skill files mark environment-dependent destinations as *(link grigio, se assente nel sistema)*; at use time, `skill-linker` checks the current installation and never presents an installed destination as missing.
 
 ## The skills
 
@@ -83,11 +83,12 @@ cp -r claude-second-brain/skills/* ~/.claude/skills/
 
 Each skill is a standard `SKILL.md` (+ optional `references/`). They work independently, but they work *better* together, because the handoff sections reference each other. Start with `decodifica-intento` + `anti-compiacimento`: they are the immune system.
 
-Three things to adapt on install:
+Four things to adapt on install:
 
 - Skills reference a `<vault>` placeholder where they touch an Obsidian vault: replace with your own paths, or delete those lines if you don't use Obsidian.
 - `decodifica-intento` ships with a "Perché questa struttura" section describing its **original user's profile** — rewrite it on yourself (or delete it): it shapes how the skill calibrates asking vs. inferring, and inheriting someone else's profile defeats the point.
-- Some handoff options are marked *(link grigio: non inclusa in questo repo)*: they point to skills from the author's wider ecosystem. Treat them as a to-do list of organs you might want to build, not as broken references.
+- Some handoff options are marked *(link grigio, se assente nel sistema)*: their availability depends on the reader's installation. Treat the marker as a conditional warning, not as a claim about the repository or a permanently broken reference.
+- `skill-linker` keeps its live registry at `~/.claude/skill-state/skill-linker/registro-grafo.md`. First run migrates a legacy `registro-grafo.md` found beside the skill; only a fresh install starts from the empty template. Change the live path if your environment needs a different user-state directory.
 
 ### First run
 

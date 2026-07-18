@@ -32,7 +32,7 @@ Regole del formato:
 - La **condizione precede la skill**: l'utente riconosce la propria situazione, non il nome dello strumento.
 - L'**ultima riga è sempre l'uscita** ("fermati qui"): una catena senza uscita diventa una trappola che allunga ogni sessione.
 - Le condizioni sono **osservabili negli output** ("se il report rivela progetti fermi"), mai generiche ("se vuoi approfondire").
-- I collegamenti verso skill **non presenti nell'installazione** si propongono comunque, ma con marcatore esplicito: *(link grigio: skill non installata)*. Il registro sa quali destinazioni mancano; deve saperlo anche l'utente nel momento della scelta — mai proporre un'opzione non sceglibile senza dirlo.
+- Prima di proporre un collegamento, verifica l'installazione corrente. Se la destinazione è disponibile, non presentarla come mancante; se è assente, rendi esplicito il limite. Nei file pubblici e portabili, dove l'installazione del lettore non è conoscibile, usa soltanto il marcatore condizionale *(link grigio, se assente nel sistema)*.
 
 Esempio reale (per report-personale):
 
@@ -56,24 +56,28 @@ Mai aggiornamenti in blocco: ogni skill va capita prima di essere collegata, e u
 3. **Mappa gli esiti.** Elenca i 2-4 stati in cui l'utente si trova tipicamente a fine processo (un report consegnato, un piano fatto, un dubbio emerso, un progetto sbloccato).
 4. **Deriva le conseguenze.** Per ogni esito, chiedi: quale skill del registro è la mossa naturale da qui? Se una skill esistente ha già una sezione di collegamenti non standard (es. "Interazione con le altre skill"), assorbila nella nuova sezione invece di duplicarla.
 5. **Mostra il diff e attendi l'ok.** Solo la sezione "Prossime skill" in coda (ed eventuale rimozione della vecchia sezione assorbita): il corpo della skill non si tocca mai — questa skill aggiunge collegamenti, non riscrive metodi.
-6. **Aggiorna il registro** ([registro-grafo.md](registro-grafo.md)) nello stesso task: un grafo non tracciato torna a essere un catalogo.
+6. **Aggiorna il registro vivo** nello stesso task: un grafo non tracciato torna a essere un catalogo. Il percorso predefinito è `~/.claude/skill-state/skill-linker/registro-grafo.md`; usa il percorso configurato dall'utente quando presente.
 
 ## Registro del grafo
 
-Il registro vive in un file separato accanto a questa skill: [registro-grafo.md](registro-grafo.md). La separazione è strutturale, non estetica: il registro è **stato che muta a ogni aggiornamento**, questo file è **istruzioni che devono restare stabili**. Tenerli insieme aveva tre costi: il registro spariva a ogni sostituzione del file (editor dell'app, aggiornamento del repo), entrava in contesto a ogni attivazione della skill anche quando non serviva, e un aggiornamento upstream di questa skill avrebbe cancellato il grafo di chi la usa. I collegamenti mancanti registrati lì sono i "link grigi" del sistema: mappa dei buchi, non errori.
+Il repository distribuisce soltanto un [template del registro](references/registro-grafo-template.md). Lo stato vivo predefinito è `~/.claude/skill-state/skill-linker/registro-grafo.md`, fuori dalla cartella installata; il percorso può essere configurato per ambienti diversi.
+
+All'avvio, usa questa precedenza: (1) stato vivo esterno già esistente; (2) registro legacy `registro-grafo.md` accanto al `SKILL.md`, da copiare nello stato esterno senza cancellare l'originale; (3) template vuoto, solo se mancano entrambi. Crea la directory necessaria prima dell'inizializzazione. Non sostituire mai uno stato vivo esistente con il template. Dopo una migrazione riuscita, segnala il file legacy come obsoleto ma lasciane l'eventuale rimozione a una decisione esplicita dell'utente.
+
+Questa separazione è strutturale: il registro è **stato che muta a ogni aggiornamento**, mentre il `SKILL.md` e il template sono **istruzioni distribuite che devono restare stabili**. Il registro vivo si carica solo quando serve per aggiornamento, censimento o rinomina. I collegamenti mancanti registrati lì sono i "link grigi" del sistema: mappa dei buchi, non errori.
 
 ## Regole non negoziabili
 
 1. Una skill per volta, sempre con diff mostrato prima della scrittura.
-2. Solo la sezione "Prossime skill" (più l'assorbimento di eventuali sezioni di collegamento preesistenti): mai toccare metodo, regole o workflow della skill ospite. L'unico stato che questa skill riscrive a ogni esecuzione è il registro — ed è per questo che sta in un file separato, non nel corpo di una skill.
+2. Solo la sezione "Prossime skill" (più l'assorbimento di eventuali sezioni di collegamento preesistenti): mai toccare metodo, regole o workflow della skill ospite. L'unico stato che questa skill riscrive a ogni esecuzione è il registro vivo esterno alla cartella installata.
 3. Ogni modifica aggiorna il registro nello stesso task, o il grafo smette di essere affidabile.
-4. Se un collegamento sensato punta a una skill che non esiste ancora, registralo comunque come link grigio — nel registro E con il marcatore *(link grigio: skill non installata)* nella sezione mostrata all'utente: è la todo-list naturale del sistema, esattamente come nel vault.
-5. **Censimento a ogni esecuzione.** Prima di aggiornare, confronta il registro con l'elenco reale della cartella delle skill: ogni skill presente sul disco ma assente dal registro entra subito come riga ☐. Senza questo passo, una skill nata fuori da skill-linker (creata a mano, o da skill-creator) non entra mai nel grafo.
+4. Se un collegamento sensato punta a una skill che non esiste ancora, registralo comunque come link grigio. Nei file portabili usa *(link grigio, se assente nel sistema)*; nell'output rivolto a un'installazione verificata, segnala l'assenza solo quando è reale.
+5. **Censimento a ogni esecuzione.** Prima di aggiornare, confronta il registro vivo con l'elenco reale della cartella delle skill: ogni skill presente sul disco ma assente dal registro entra subito come riga ☐. Cerca inoltre i marcatori nelle sezioni "Prossime skill": nei file portabili normalizzali alla formula condizionale; nell'installazione viva non presentare come mancante una destinazione che ora esiste. Senza questo passo, una skill nata fuori da skill-linker (creata a mano, o da skill-creator) non entra mai nel grafo e i marcatori diventano stantii.
 6. **Rinomina o eliminazione.** Cerca il vecchio nome nella colonna dei collegamenti in uscita del registro E nei corpi di tutte le skill (grep, non memoria): ogni occorrenza va aggiornata o marcata come rotta nello stesso task. Il registro traccia le sezioni "Prossime skill"; le citazioni dentro il corpo delle skill si trovano solo cercandole.
 
 ## Prossime skill
 
 - se hai appena aggiornato una skill e il registro mostra altri ☐ → **skill-linker** di nuovo, sulla prossima candidata (una per volta)
-- se durante la mappatura è emerso che serve una skill nuova, non un collegamento → **skill-creator** (crearla, poi collegarla) *(link grigio: non inclusa in questo repo)*
+- se durante la mappatura è emerso che serve una skill nuova, non un collegamento → **skill-creator** (crearla, poi collegarla) *(link grigio, se assente nel sistema)*
 - se vuoi verificare che i collegamenti scelti reggano all'uso reale → esegui la skill appena aggiornata su un caso vero e osserva se la proposta finale è quella giusta
 - oppure: fermati qui — il grafo cresce un nodo alla volta.

@@ -76,6 +76,6 @@ Al termine del processo, proponi all'utente le conseguenze sceglibili pertinenti
 tra queste — solo quelle che gli output di questa sessione rendono sensate:
 
 - se la richiesta decodificata è un giudizio di merito → **anti-compiacimento** (verdetto onesto in due parti)
-- se la richiesta decodificata è studio o comprensione → **apprendimento-adattivo** (spiegazione calibrata) *(link grigio: non inclusa in questo repo)*
-- se la decodifica rivela un progetto da inquadrare o sbloccare → **gestione-progetti** (scomposizione in prossime azioni) *(link grigio: non inclusa in questo repo)*
+- se la richiesta decodificata è studio o comprensione → **apprendimento-adattivo** (spiegazione calibrata) *(link grigio, se assente nel sistema)*
+- se la decodifica rivela un progetto da inquadrare o sbloccare → **gestione-progetti** (scomposizione in prossime azioni) *(link grigio, se assente nel sistema)*
 - oppure: fermati qui — la richiesta è chiara: esegui.

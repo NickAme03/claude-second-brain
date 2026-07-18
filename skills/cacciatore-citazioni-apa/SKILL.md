@@ -34,12 +34,12 @@ Google Scholar non ha API pubblica e blocca lo scraping: usalo via `WebSearch` p
 ### 4. Verifica e ancora
 Per ogni candidata:
 - Apri il record e conferma che esista davvero (PMID/DOI attivo, rivista reale).
-- Controlla lo **stato di pubblicazione**: un articolo ritrattato ha PMID e DOI perfettamente validi e supererebbe ogni altro controllo di questa skill. Se il record PubMed segnala ritrattazione o expression of concern (campi e procedura in [references/pubmed-api.md](references/pubmed-api.md)), la fonte non vale come sostegno: scartala o marcala `[RITRATTATA]`, mai in bibliografia. Una citazione ritrattata difesa a un orale fa lo stesso danno di una inventata.
+- Controlla lo **stato di pubblicazione**: un articolo ritrattato ha PMID e DOI perfettamente validi e supererebbe ogni altro controllo di questa skill. Se il record PubMed segnala una ritrattazione (campi e procedura in [references/pubmed-api.md](references/pubmed-api.md)), la fonte non vale come sostegno: scartala o marcala `[RITRATTATA]`, mai in bibliografia. Se segnala una expression of concern, marcala `[ESPRESSIONE DI PREOCCUPAZIONE]`: non chiamarla ritrattata e non usarla come sostegno definitivo finché l'avviso non viene risolto. Una citazione ritrattata difesa a un orale fa lo stesso danno di una inventata.
 - Copia la **frase verbatim** dell'autore dall'abstract/testo **del documento aperto**, con la posizione. Mai dal frammento (snippet) restituito da un motore di ricerca: i frammenti troncano e ricuciono, e sono l'unico punto della catena da cui una frase non verificata potrebbe entrare rispettando la lettera delle altre regole.
 - Verifica che la frase **sostenga davvero** il claim: non deve essere forzata né estrapolata fuori contesto. Se sostiene solo parzialmente, dillo.
 
 ### 5. Formatta in APA 7
-Applica lo stile APA 7ª edizione (dettagli e casi particolari in [references/apa7-format.md](references/apa7-format.md)): riferimento completo in bibliografia + citazione in-text `(Autore, anno)`. Riporta sempre la **rivista**. Il **database di provenienza** (PubMed / Google Scholar) va SOLO nella colonna di lavoro della tabella, mai nella voce bibliografica: l'APA 7 omette il database per le opere ampiamente disponibili (articoli, libri, capitoli), con eccezione dei soli database a contenuto proprietario o a circolazione limitata (es. Cochrane, ERIC, ProQuest per le tesi di dottorato).
+Applica lo stile APA 7ª edizione (dettagli e casi particolari in [references/apa7-format.md](references/apa7-format.md)): riferimento completo in bibliografia + citazione in-text `(Autore, anno)`. Riporta sempre la **rivista**. Il **database di provenienza** (PubMed / Google Scholar) va SOLO nella colonna di lavoro della tabella, mai nella voce bibliografica: l'APA 7 omette il database per le opere ampiamente disponibili (articoli, libri, capitoli), con eccezione dei soli database a contenuto proprietario o a circolazione limitata (es. Cochrane e ProQuest per le tesi di dottorato; per ERIC solo le opere a circolazione limitata, mentre gli articoli di rivista indicizzati seguono il formato articolo).
 
 ### 6. Verifica avversariale finale
 Prima di consegnare, rileggi ogni citazione chiedendoti: *"Se la relatrice cercasse questo DOI, lo troverebbe? Se aprisse il paper, troverebbe questa frase?"* Scarta tutto ciò che non supera questa prova.
@@ -64,6 +64,6 @@ Sotto la tabella, elenca separatamente:
 Al termine del processo, proponi all'utente le conseguenze sceglibili pertinenti
 tra queste — solo quelle che gli output di questa sessione rendono sensate:
 
-- se la tabella contiene voci `[DA VERIFICARE]` o `[RITRATTATA]` → nuovo giro di caccia mirato solo su quei claim, prima della consegna
-- se l'apparato citazionale entra in un testo che verrà valutato (tesi, paper) → **verifica-rigore** (revisione avversariale di claim e fonti) *(link grigio: non inclusa in questo repo)*
+- se la tabella contiene voci `[DA VERIFICARE]`, `[RITRATTATA]` o `[ESPRESSIONE DI PREOCCUPAZIONE]` → nuovo giro di caccia mirato solo su quei claim, prima della consegna
+- se l'apparato citazionale entra in un testo che verrà valutato (tesi, paper) → **verifica-rigore** (revisione avversariale di claim e fonti) *(link grigio, se assente nel sistema)*
 - oppure: fermati qui — la bibliografia approvata è il deliverable.

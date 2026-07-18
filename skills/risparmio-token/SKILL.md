@@ -51,7 +51,7 @@ Basata su: [Prompt caching (docs ufficiali)](https://platform.claude.com/docs/en
 
 ## Prossime skill
 
-- se l'audit rivela istruzioni da spostare da CLAUDE.md a una skill nuova → **skill-creator** (crearla con progressive disclosure già impostata) *(link grigio: non inclusa in questo repo)*
+- se l'audit rivela istruzioni da spostare da CLAUDE.md a una skill nuova → **skill-creator** (crearla con progressive disclosure già impostata) *(link grigio, se assente nel sistema)*
 - se la skill nuova esiste e va messa in rete → **skill-linker** (collegarla al grafo)
-- se le raccomandazioni dell'audit verranno usate per decisioni con costi reali → **verifica-rigore** (controllo avversariale dei numeri prima di agire) *(link grigio: non inclusa in questo repo)*
+- se le raccomandazioni dell'audit verranno usate per decisioni con costi reali → **verifica-rigore** (controllo avversariale dei numeri prima di agire) *(link grigio, se assente nel sistema)*
 - oppure: fermati qui — le regole operative restano attive per la sessione.

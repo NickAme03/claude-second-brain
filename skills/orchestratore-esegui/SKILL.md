@@ -65,5 +65,5 @@ tra queste — solo quelle che gli output di questa sessione rendono sensate:
 
 - se un task è bloccato o il piano non regge alla realtà → **orchestratore-ripianifica** (aggiornamento incrementale del piano)
 - se il piano è completato ma emergono lavori nuovi → **orchestratore-pianifica** (piano per il progetto successivo)
-- se il deliverable completato verrà usato per decisioni reali → **verifica-rigore** (revisione avversariale prima di consegnarlo) *(link grigio: non inclusa in questo repo)*
+- se il deliverable completato verrà usato per decisioni reali → **verifica-rigore** (revisione avversariale prima di consegnarlo) *(link grigio, se assente nel sistema)*
 - oppure: fermati qui — lo stato è salvo nel piano, la prossima sessione riprende da lì.

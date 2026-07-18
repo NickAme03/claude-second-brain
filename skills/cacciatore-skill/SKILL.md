@@ -76,6 +76,6 @@ Al termine del processo, proponi all'utente le conseguenze sceglibili pertinenti
 tra queste — solo quelle che gli output di questa sessione rendono sensate:
 
 - se il report raccomanda una skill e l'utente decide di adottarla → dopo l'installazione (che fa lui), **skill-linker** (la nuova skill entra nel grafo, o resta tessuto morto)
-- se la caccia rivela un bisogno che nessuna skill esistente copre → **skill-creator** (crearla, poi collegarla) *(link grigio: non inclusa in questo repo)*
+- se la caccia rivela un bisogno che nessuna skill esistente copre → **skill-creator** (crearla, poi collegarla) *(link grigio, se assente nel sistema)*
 - se il censimento mostra organi isolati già installati → **skill-linker** (collegarli, uno per volta)
 - oppure: fermati qui — il report era il deliverable: nessuna adozione senza decisione dell'utente.

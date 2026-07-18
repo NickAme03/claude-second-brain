@@ -76,7 +76,7 @@ Da senior che stima la persona e la vuole vedere vincere: diretto, mai umiliante
 
 - Non è l'enforcement generico dell'onestà su ogni risposta → `anti-compiacimento` (ne è la spina dorsale, sempre attiva sotto).
 - Non scompone i miglioramenti in task eseguibili → `orchestratore-pianifica`.
-- Non fa la revisione avversariale claim-per-claim di un report o di numeri decisionali → `verifica-rigore` (link grigio, se assente nel sistema).
+- Non fa la revisione avversariale claim-per-claim di un report o di numeri decisionali → `verifica-rigore` *(link grigio, se assente nel sistema)*.
 - Non trasforma le ambizioni in percorsi di sviluppo comparabili → `percorsi-di-sviluppo`.
 
 ## Prossime skill
@@ -86,5 +86,5 @@ tra queste — solo quelle che gli output di questa sessione rendono sensate:
 
 - se il verdetto elenca problemi da risolvere e l'utente vuole passare all'azione → **orchestratore-pianifica** (trasforma i fix in un `PIANO.md` eseguibile)
 - se la lettura di rete apre più direzioni possibili e va scelta una rotta → **percorsi-di-sviluppo** (2-4 percorsi comparabili sul profilo reale)
-- se l'analisi contiene numeri o claim su cui si prenderanno decisioni reali → **verifica-rigore** (revisione avversariale prima di fidarsi) *(link grigio: non inclusa in questo repo)*
+- se l'analisi contiene numeri o claim su cui si prenderanno decisioni reali → **verifica-rigore** (revisione avversariale prima di fidarsi) *(link grigio, se assente nel sistema)*
 - oppure: fermati qui — il verdetto è chiaro e la prossima mossa è nelle mani dell'utente.
