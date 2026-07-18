@@ -45,6 +45,14 @@ Campi da estrarre da esummary (JSON, dentro `result.<PMID>`):
 
 Il DOI risolvibile è `https://doi.org/<DOI>`. Se serve conferma, un `WebFetch` su quell'URL deve puntare all'articolo reale sulla rivista dichiarata. Se il DOI non risolve o punta altrove, la citazione va marcata `[DA VERIFICARE]`.
 
+## Controllo ritrattazioni (obbligatorio nel passo 4 della skill)
+
+Un articolo ritrattato conserva PMID e DOI validi: lo stato va controllato apposta, non emerge dai metadati di base.
+
+- **esummary** (JSON): dentro `result.<PMID>`, il campo `pubtype` — se contiene "Retracted Publication", la fonte è ritrattata: scartala o marcala `[RITRATTATA]`.
+- **efetch** (XML, `retmode=xml`): `<PublicationType>` e la lista `<CommentsCorrectionsList>` — `RefType="RetractionIn"` = ritrattato; `RefType="ExpressionOfConcernIn"` = sotto avviso di dubbio; un `ErratumIn` va valutato se tocca proprio il dato citato.
+- **Fallback**: la pagina pubblica `https://pubmed.ncbi.nlm.nih.gov/<PMID>/` mostra la ritrattazione in un banner ben visibile a inizio pagina.
+
 ## Nota sulla frase verbatim
 
 La frase verbatim va copiata dall'abstract restituito da `efetch` (o dal full text se accessibile), **parola per parola**, indicando la posizione (es. "Abstract, para. 1"). Non ricostruire la frase a memoria: aprila e copiala.
