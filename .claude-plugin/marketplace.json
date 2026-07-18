@@ -1,0 +1,23 @@
+{
+  "name": "claude-second-brain",
+  "description": "A second brain for Claude Code: self-managing skills that decode intent, refuse sycophancy, link themselves into a graph, and orchestrate multi-session projects.",
+  "owner": {
+    "name": "Niccolò Amery"
+  },
+  "plugins": [
+    {
+      "name": "second-brain-skills",
+      "source": "./",
+      "description": "The full skill set of the second brain: intent decoding, anti-sycophancy judgment, skill graph linking, token economy, APA citation hunting, development paths, and the 4-phase project orchestrator (plan / execute / replan / dashboard).",
+      "strict": false,
+      "author": {
+        "name": "Niccolò Amery"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/NickAme03/claude-second-brain",
+      "repository": "https://github.com/NickAme03/claude-second-brain",
+      "category": "productivity",
+      "keywords": ["second-brain", "skills", "orchestration", "anti-sycophancy", "intent-decoding", "pkm"]
+    }
+  ]
+}

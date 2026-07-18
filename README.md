@@ -1,18 +1,18 @@
 # Claude Second Brain
 
-**A living skill ecosystem for Claude Code — not a prompt collection, an operating system for how an AI collaborator should think before it acts.**
+**A living skill ecosystem for Claude Code: not a prompt collection, an operating system for how an AI collaborator should think before it acts.**
 
-Most Claude Code skill repos are catalogs: isolated prompts you have to remember to invoke. This is something else — a **connected system** where every skill knows what comes after it, judgment is protected from sycophancy by hard rules, and every ambiguous request gets decoded before a single file is touched.
+Most Claude Code skill repos are catalogs: isolated prompts you have to remember to invoke. This is something else: a **connected system** where every skill knows what comes after it, judgment is protected from sycophancy by hard rules, and every ambiguous request gets decoded before a single file is touched.
 
-The skills are written in Italian. The **method is language-agnostic** — and the method is the actual product here. Translate freely; the architecture survives translation.
+The skills are written in Italian. The **method is language-agnostic**, and the method is the actual product here. Translate freely; the architecture survives translation.
 
 ## The three principles
 
 Every skill in this system was admitted only if it passed three gates:
 
-1. **Self-management** — the system works without constant manual intervention. Skills update themselves, registries track state, nothing depends on you remembering.
-2. **Biological organicity** — skills are organs: they are born, they connect, they specialize. An isolated skill is dead tissue. Every skill ends with a "Prossime skill" (next skills) section: 2–4 *choosable consequences* derived from what the process actually produced, so no session ends in a dead end.
-3. **Inertia** — every addition must increase the system's capacity to grow on its own.
+1. **Self-management**: the system works without constant manual intervention. Skills update themselves, registries track state, nothing depends on you remembering.
+2. **Biological organicity**: skills are organs. They are born, they connect, they specialize; an isolated skill is dead tissue. Every skill ends with a "Prossime skill" (next skills) section, 2-4 *choosable consequences* derived from what the process actually produced, so no session ends in a dead end.
+3. **Inertia**: every addition must increase the system's capacity to grow on its own.
 
 ## The graph
 
@@ -29,9 +29,14 @@ graph LR
     SL --> SL
     CS[cacciatore-skill<br/><i>hunts new skills</i>] -.proposes.-> SL
     CC[cacciatore-citazioni-apa<br/><i>zero-fabrication citations</i>]
+    AP[analista-progetti<br/><i>project review, employability lens</i>] --> OP
+    AP --> PS
+    AC -.honesty backbone.-> AP
+    BU[bussola<br/><i>cold-start compass</i>] --> DI
+    BU --> OC
 ```
 
-The graph is not documentation — it is **maintained by one of its own nodes** (`skill-linker`), which adds a standard handoff section to every skill, one at a time, and keeps a registry of edges. Missing links are tracked as "gray links": the system's natural to-do list.
+The graph is not documentation: it is **maintained by one of its own nodes** (`skill-linker`), which adds a standard handoff section to every skill, one at a time, and keeps a registry of edges. Missing links are tracked as "gray links": the system's natural to-do list.
 
 ## The skills
 
@@ -43,11 +48,13 @@ The graph is not documentation — it is **maintained by one of its own nodes** 
 | `risparmio-token` | Token economy in three modes: operating rules during work, setup audit (CLAUDE.md, MCP, skills), and design of token-efficient artifacts. Based on Anthropic's documented techniques. |
 | `orchestratore-pianifica` | Turns a concrete objective into an executable `PIANO.md` task sequence. |
 | `orchestratore-esegui` | Executes tasks from `PIANO.md`, resuming exactly where the last session stopped. |
-| `orchestratore-ripianifica` | Updates a plan incrementally when reality diverges — never rewrites from scratch. |
+| `orchestratore-ripianifica` | Updates a plan incrementally when reality diverges, never rewrites from scratch. |
 | `orchestratore-cruscotto` | Read-only control tower over all active plans. Answers one question: *where is the human actually needed?* |
-| `percorsi-di-sviluppo` | Turns research output or vague ambitions into 2–4 comparable development paths built on the user's real profile — each with pros, structural cons (don't disappear with effort), plannable difficulties, first 3 steps, and an **abandonment signal**. |
-| `cacciatore-skill` | The procurement organ: hunts and evaluates new skills (GitHub, marketplaces) against the three principles. Reports only — never installs. |
+| `percorsi-di-sviluppo` | Turns research output or vague ambitions into 2-4 comparable development paths built on the user's real profile, each with pros, structural cons (don't disappear with effort), plannable difficulties, first 3 steps, and an **abandonment signal**. |
+| `cacciatore-skill` | The procurement organ: hunts and evaluates new skills (GitHub, marketplaces) against the three principles. Reports only, never installs. |
 | `cacciatore-citazioni-apa` | Finds REAL, verifiable academic citations (PubMed E-utilities, Google Scholar), formats APA 7, extracts verbatim quotes. Absolute fabrication ban. |
+| `analista-progetti` | Reviews a tech project (or a whole portfolio read as a network) the way whoever judges it next would. Three lenses (Principal Engineer, senior PM, portfolio reviewer), seven dimensions scored 🟢/🟡/🟠/🔴, ruthless prioritization, every criticism shipped with a fix. Honesty backbone inherited from `anti-compiacimento`. |
+| `bussola` | Cold-start dispatcher for the "I don't even know where to begin" moment. Gathers minimal context, returns ONE direction plus a first concrete move, then hands off to the right skill. A compass, not a planner. |
 
 ## Design patterns worth stealing
 
@@ -60,20 +67,27 @@ Even if you never run these skills, four patterns transfer to any Claude Code se
 
 ## Install
 
-Copy any skill folder into your Claude Code skills directory:
+The repo is a Claude Code plugin marketplace. From any Claude Code session:
+
+```shell
+/plugin marketplace add NickAme03/claude-second-brain
+/plugin install second-brain-skills@claude-second-brain
+```
+
+Or copy any skill folder into your Claude Code skills directory:
 
 ```bash
 git clone https://github.com/NickAme03/claude-second-brain
 cp -r claude-second-brain/skills/* ~/.claude/skills/
 ```
 
-Each skill is a standard `SKILL.md` (+ optional `references/`). They work independently — but they work *better* together, because the handoff sections reference each other. Start with `decodifica-intento` + `anti-compiacimento`: they are the immune system.
+Each skill is a standard `SKILL.md` (+ optional `references/`). They work independently, but they work *better* together, because the handoff sections reference each other. Start with `decodifica-intento` + `anti-compiacimento`: they are the immune system.
 
-Skills reference a `<vault>` placeholder where they touch an Obsidian vault — replace with your own paths, or delete those lines if you don't use Obsidian.
+Skills reference a `<vault>` placeholder where they touch an Obsidian vault: replace with your own paths, or delete those lines if you don't use Obsidian.
 
 ### First run
 
-Open any Claude Code session and type an ambiguous request — something like:
+Open any Claude Code session and type an ambiguous request, something like:
 
 > *"sistemami il progetto"* ("fix up my project")
 
@@ -87,7 +101,7 @@ Le skill sono nate in italiano e in italiano restano: sono il sistema operativo 
 
 ## Status
 
-This is a **living system**, published as-is from daily use. It will evolve: the update log lives in the commit history, which is the point — *build in public*. Issues and discussions welcome, in English or Italian.
+This is a **living system**, published as-is from daily use. It will evolve: the update log lives in the commit history, which is the point, *build in public*. Issues and discussions welcome, in English or Italian.
 
 ## License
 

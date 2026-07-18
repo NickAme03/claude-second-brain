@@ -89,6 +89,6 @@ lettura ma non vincolano: contano solo le dipendenze dichiarate.
 - Nome file: `PIANO.md` nella cartella radice del progetto. Se nella stessa cartella
   convivono più progetti, usare `PIANO-<slug>.md`.
 - Ogni piano è registrato nella torre di controllo del vault
-  (`OBSIDIAN MAIN\Secondo Cervello\99 Sistema\Piani attivi.md`): la riga la scrive
+  (`<vault>/99 Sistema/Piani attivi.md`): la riga la scrive
   orchestratore-pianifica alla creazione e la sincronizza orchestratore-cruscotto alla
   scansione. Le altre skill non toccano il registro.

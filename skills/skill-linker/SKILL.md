@@ -63,6 +63,7 @@ Stato dei collegamenti, da verificare sul file reale alla prima apertura di ogni
 |---|---|---|---|
 | risparmio-token | ☑ | skill-creator, skill-linker, verifica-rigore | nata con sezione standard |
 | decodifica-intento | ☑ | anti-compiacimento, gestione-progetti | pre-processing delle richieste, aggancio permanente via regola in memoria |
+| analista-progetti | ☑ | orchestratore-pianifica, percorsi-di-sviluppo, verifica-rigore | review progetti/portfolio con lente employability; onestà ereditata da anti-compiacimento |
 | *(le tue skill…)* | ☐ | | |
 
 Legenda: ☐ = da fare · ◪ = testo pronto, in attesa di applicazione nell'editor dell'app · ☑ = sezione standard presente. Quando una skill viene aggiornata, spunta la casella e riporta i collegamenti effettivi nella terza colonna.
