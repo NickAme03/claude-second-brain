@@ -32,6 +32,7 @@ Regole del formato:
 - La **condizione precede la skill**: l'utente riconosce la propria situazione, non il nome dello strumento.
 - L'**ultima riga è sempre l'uscita** ("fermati qui"): una catena senza uscita diventa una trappola che allunga ogni sessione.
 - Le condizioni sono **osservabili negli output** ("se il report rivela progetti fermi"), mai generiche ("se vuoi approfondire").
+- I collegamenti verso skill **non presenti nell'installazione** si propongono comunque, ma con marcatore esplicito: *(link grigio: skill non installata)*. Il registro sa quali destinazioni mancano; deve saperlo anche l'utente nel momento della scelta — mai proporre un'opzione non sceglibile senza dirlo.
 
 Esempio reale (per report-personale):
 
@@ -44,36 +45,31 @@ Esempio reale (per report-personale):
 - oppure: fermati qui — il report è la baseline per il prossimo confronto diacronico.
 ```
 
+*(L'esempio cita skill dell'ecosistema d'origine, alcune non incluse in questo repo: nel tuo sistema le destinazioni saranno le tue.)*
+
 ## Workflow di aggiornamento — una skill per volta
 
 Mai aggiornamenti in blocco: ogni skill va capita prima di essere collegata, e un lotto di modifiche superficiali produce collegamenti generici che nessuno sceglierà. Per ogni aggiornamento:
 
-1. **Individua il file reale.** Chiedi all'utente quale skill aggiornare, poi trova il suo SKILL.md. Attenzione al percorso: le skill in directory gestite (percorsi di sessione tipo `AppData\Roaming\Claude\...\skills-plugin\<uuid>\...`) sono copie sincronizzate dall'app — modificarle sul disco è inutile. **Decisione presa (6 lug 2026): la fonte è il gestore skill dell'app.** Il processo è quindi: prepara il testo aggiornato in `~/.claude/skill-updates\<nome-skill>.md` (istruzioni di modifica + sezione nuova, pronte da incollare), l'utente lo applica nell'editor skill dell'app, e solo dopo la sua conferma spunti il registro. Le skill native di Claude Code in `~/.claude/skills/` si modificano invece direttamente sul file.
+1. **Individua il file reale.** Chiedi all'utente quale skill aggiornare, poi trova il suo SKILL.md. Attenzione al percorso: le skill in directory gestite dall'app (percorsi di sessione con id generati) sono copie sincronizzate — modificarle sul disco è inutile, la fonte di verità è il gestore skill dell'app. Per quelle: prepara il testo aggiornato in `~/.claude/skill-updates/<nome-skill>.md` (istruzioni di modifica + sezione nuova, pronte da incollare), l'utente lo applica nell'editor skill dell'app, e solo dopo la sua conferma spunti il registro. Le skill native di Claude Code in `~/.claude/skills/` si modificano invece direttamente sul file.
 2. **Leggi la skill per intero.** I collegamenti si derivano dagli output che la skill produce davvero, non dalla sua descrizione.
 3. **Mappa gli esiti.** Elenca i 2-4 stati in cui l'utente si trova tipicamente a fine processo (un report consegnato, un piano fatto, un dubbio emerso, un progetto sbloccato).
 4. **Deriva le conseguenze.** Per ogni esito, chiedi: quale skill del registro è la mossa naturale da qui? Se una skill esistente ha già una sezione di collegamenti non standard (es. "Interazione con le altre skill"), assorbila nella nuova sezione invece di duplicarla.
 5. **Mostra il diff e attendi l'ok.** Solo la sezione "Prossime skill" in coda (ed eventuale rimozione della vecchia sezione assorbita): il corpo della skill non si tocca mai — questa skill aggiunge collegamenti, non riscrive metodi.
-6. **Aggiorna il registro** qui sotto nello stesso task: un grafo non tracciato torna a essere un catalogo.
+6. **Aggiorna il registro** ([registro-grafo.md](registro-grafo.md)) nello stesso task: un grafo non tracciato torna a essere un catalogo.
 
 ## Registro del grafo
 
-Stato dei collegamenti, da verificare sul file reale alla prima apertura di ogni skill. I collegamenti mancanti sono i "link grigi" del sistema: mappa dei buchi, non errori. Il registro sottostante è un **template con righe d'esempio**: sostituiscilo con le TUE skill alla prima esecuzione, e da lì tienilo vivo — ogni aggiornamento di una skill aggiorna anche la sua riga.
-
-| Skill | Sezione "Prossime skill" | Collegamenti in uscita noti | Note |
-|---|---|---|---|
-| risparmio-token | ☑ | skill-creator, skill-linker, verifica-rigore | nata con sezione standard |
-| decodifica-intento | ☑ | anti-compiacimento, gestione-progetti | pre-processing delle richieste, aggancio permanente via regola in memoria |
-| analista-progetti | ☑ | orchestratore-pianifica, percorsi-di-sviluppo, verifica-rigore | review progetti/portfolio con lente employability; onestà ereditata da anti-compiacimento |
-| *(le tue skill…)* | ☐ | | |
-
-Legenda: ☐ = da fare · ◪ = testo pronto, in attesa di applicazione nell'editor dell'app · ☑ = sezione standard presente. Quando una skill viene aggiornata, spunta la casella e riporta i collegamenti effettivi nella terza colonna.
+Il registro vive in un file separato accanto a questa skill: [registro-grafo.md](registro-grafo.md). La separazione è strutturale, non estetica: il registro è **stato che muta a ogni aggiornamento**, questo file è **istruzioni che devono restare stabili**. Tenerli insieme aveva tre costi: il registro spariva a ogni sostituzione del file (editor dell'app, aggiornamento del repo), entrava in contesto a ogni attivazione della skill anche quando non serviva, e un aggiornamento upstream di questa skill avrebbe cancellato il grafo di chi la usa. I collegamenti mancanti registrati lì sono i "link grigi" del sistema: mappa dei buchi, non errori.
 
 ## Regole non negoziabili
 
 1. Una skill per volta, sempre con diff mostrato prima della scrittura.
-2. Solo la sezione "Prossime skill" (più l'assorbimento di eventuali sezioni di collegamento preesistenti): mai toccare metodo, regole o workflow della skill ospite.
+2. Solo la sezione "Prossime skill" (più l'assorbimento di eventuali sezioni di collegamento preesistenti): mai toccare metodo, regole o workflow della skill ospite. L'unico stato che questa skill riscrive a ogni esecuzione è il registro — ed è per questo che sta in un file separato, non nel corpo di una skill.
 3. Ogni modifica aggiorna il registro nello stesso task, o il grafo smette di essere affidabile.
-4. Se un collegamento sensato punta a una skill che non esiste ancora, registralo comunque nel registro come link grigio: è la todo-list naturale del sistema, esattamente come nel vault.
+4. Se un collegamento sensato punta a una skill che non esiste ancora, registralo comunque come link grigio — nel registro E con il marcatore *(link grigio: skill non installata)* nella sezione mostrata all'utente: è la todo-list naturale del sistema, esattamente come nel vault.
+5. **Censimento a ogni esecuzione.** Prima di aggiornare, confronta il registro con l'elenco reale della cartella delle skill: ogni skill presente sul disco ma assente dal registro entra subito come riga ☐. Senza questo passo, una skill nata fuori da skill-linker (creata a mano, o da skill-creator) non entra mai nel grafo.
+6. **Rinomina o eliminazione.** Cerca il vecchio nome nella colonna dei collegamenti in uscita del registro E nei corpi di tutte le skill (grep, non memoria): ogni occorrenza va aggiornata o marcata come rotta nello stesso task. Il registro traccia le sezioni "Prossime skill"; le citazioni dentro il corpo delle skill si trovano solo cercandole.
 
 ## Prossime skill
 
